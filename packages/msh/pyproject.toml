@@ -1,0 +1,28 @@
+[project]
+name = "msh"
+version = "0.1.0"
+description = "Python data converters for ESRI shapefiles to Evo geoscience objects."
+readme = "README.md"
+authors = [
+    { name = "Seequent", email = "support@seequent.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "evo-data-converters-common",
+]
+
+[project.scripts]
+msh = "msh:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+include = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/evo"]
+
+[tool.uv.sources]
+evo-data-converters-common = { workspace = true }
